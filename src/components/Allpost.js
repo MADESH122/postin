@@ -45,7 +45,7 @@ const Allpost = () => {
     <div className='displaypost'>
       {images.map(image => (
         <div key={image._id} className='showimages'>
-          <img src={`http://localhost:8000/images/${image.image}`} alt={image.image} />
+          <img src={`https://node-server-app-d7vw.onrender.com/${image.image}`} alt={image.image} />
         </div>
       ))}
       <div className='Uplodes'>
