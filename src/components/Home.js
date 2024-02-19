@@ -52,7 +52,7 @@ const Home = () => {
       {images.map(image => (
         <div key={image._id} className='userpost'>
           <h4> <FaUserCircle /><p>{image.name ? image.name : "Unknown"}</p></h4>
-          <img src={`https://node-server-app-d7vw.onrender.com/${image.image}`} alt={image.image} />
+          <img src={`https://node-server-app-d7vw.onrender.com/images/${image.image}`} alt={image.image} />
           <div className='inbox'>
             <div className='like'>
               <FcLike className='likebtn' type='button' onClick={() => handleLike(image._id)} />

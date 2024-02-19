@@ -29,7 +29,7 @@ const Allpost = () => {
         formdata.append('name', name)
         formdata.append('password', password)
         axios.post('https://node-server-app-d7vw.onrender.com/upload', formdata)
-        setTimeout(function () { window.location.reload() }, 20000) }
+        setTimeout(function () { window.location.reload() }, 2000) }
     } catch (error) {
       console.log(error)
     }
@@ -45,7 +45,7 @@ const Allpost = () => {
     <div className='displaypost'>
       {images.map(image => (
         <div key={image._id} className='showimages'>
-          <img src={`https://node-server-app-d7vw.onrender.com/${image.image}`} alt={image.image} />
+          <img src={`https://node-server-app-d7vw.onrender.com/images/${image.image}`} alt={image.image} />
         </div>
       ))}
       <div className='Uplodes'>
