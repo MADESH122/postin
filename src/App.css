@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(233, 234, 235);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*---------------------navebar style--------------------- */
+.navebar {
+  width: 100%;
+  background-color: black;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  position: sticky;
+  top: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.navebar h3 button {
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navebar h3 button:hover {
+  color: gold;
+}
+
+/*---------------------navebarlast style--------------------- */
+.navebarlast {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px 0 20px;
+  position: fixed;
+  bottom: 0;
+}
+
+.navebarlast a {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: goldenrod !important;
+}
+
+i {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.row .col {
+  position: static !important;
+  overflow: none;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

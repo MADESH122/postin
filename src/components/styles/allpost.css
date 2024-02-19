@@ -1,0 +1,72 @@
+.displaypost {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin:0 0 70px 0;
+}
+
+.displaypost .showimages {
+    margin: 10px;
+}
+
+.displaypost .showimages img {
+    height: 200px;
+    width: auto;
+    border-radius: 20px;
+}
+
+.Uplodes {
+    position: fixed;
+    bottom: 100px;
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Uplodes input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #243274;
+    padding: 10px 20px;
+    border-radius: 0 0 0 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.Uplodes button {
+    border: none;
+    background: #243274;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.Uplodes input[type=file]::file-selector-button:hover {
+    background: #0d45a5;
+}
+
+.Uplodes button:hover {
+    background: #0d45a5;
+}
+
+.getimage {
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+}
+
+.getuser {
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.getuser input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+}

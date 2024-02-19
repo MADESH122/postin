@@ -1,0 +1,100 @@
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+
+.posts img {
+    height: 200px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.posts .userpost {
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+/* comment box */
+.inbox {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inbox input {
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid black;
+    outline: none;
+}
+
+.inbox .like {
+    display: flex;
+    align-items: center;
+
+}
+
+.inbox .like .likebtn {
+    border: none;
+    font-size: 30px;
+    background: none;
+    font-size: 30px;
+}
+
+.inbox .like button:hover {
+    opacity: 0.6;
+}
+
+.inbox .like h4 {
+    margin: 0 8px 0 8px;
+    font-size: 30px;
+}
+
+.comment {
+    display: flex;
+}
+
+.userpost .comment button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    padding: 0 10px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 0 10px 10px 0;
+}
+
+.displayCommants {
+    display: flex;
+    border-top: 2px black solid;
+    height: 50px;
+}
+
+.disCommants {
+    overflow: auto;
+    width: 100%;
+    margin: 0 10px;
+}
+
+.disCommants p {
+    margin: 0;
+}
+
+.userpost h4{
+    font-size:25px;
+    display: flex;
+    align-items: center
+}
+.userpost h4 p{
+    margin:10px;
+}
