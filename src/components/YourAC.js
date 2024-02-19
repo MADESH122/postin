@@ -73,7 +73,7 @@ const YourAC = () => {
             {userData.map((user) => (
               <div key={user._id} className='datas'>
                 <div className='images'>
-                  <img src={`http://localhost:8000/images/${user.image}`} alt="User" />
+                  <img src={`https://node-server-app-d7vw.onrender.com/${user.image}`} alt="User" />
                   <h4>Like : {user.likes}</h4>
                 </div>
               </div>
