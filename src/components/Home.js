@@ -10,7 +10,7 @@ const Home = () => {
   const [images, setImage] = useState([])
   const [commentText, setCommentText] = useState('')
   useEffect(() => {
-    axios.get('http://localhost:8000/getImage')
+    axios.get('https://node-server-app-d7vw.onrender.com/getImage')
       .then(res => setImage(res.data))
       .catch(err => console.log(err))
   }, [])

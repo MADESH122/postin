@@ -28,9 +28,8 @@ const Allpost = () => {
         formdata.append('file', file)
         formdata.append('name', name)
         formdata.append('password', password)
-
         axios.post('https://node-server-app-d7vw.onrender.com/upload', formdata)
-        setTimeout(function () { window.location.reload() }, 20000)      }
+        setTimeout(function () { window.location.reload() }, 20000) }
     } catch (error) {
       console.log(error)
     }
