@@ -18,7 +18,7 @@ const Home = () => {
 // ------------------handle like------------------//
   const handleLike = async (imageId) => {
     try {
-      const response = await axios.post(`http://localhost:8000/like/${imageId}`);
+      const response = await axios.post(`https://node-server-app-d7vw.onrender.com//${imageId}`);
       const updatedImages = images.map(image =>
         image._id === imageId ? { ...image, likes: response.data.likes } : image
       );
@@ -35,7 +35,7 @@ const Home = () => {
         return undefined
       }
       else {
-        const response = await axios.post(`http://localhost:8000/comment/${imageId}`, { text, user });
+        const response = await axios.post(`https://node-server-app-d7vw.onrender.com/comment/${imageId}`, { text, user });
         const updatedImages = images.map(image =>
           image._id === imageId ? { ...image, comments: response.data.comments } : image
         );

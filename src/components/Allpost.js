@@ -29,7 +29,7 @@ const Allpost = () => {
         formdata.append('name', name)
         formdata.append('password', password)
 
-        axios.post('http://localhost:8000/upload', formdata)
+        axios.post('https://node-server-app-d7vw.onrender.com/upload', formdata)
         setTimeout(function () { window.location.reload() }, 2000)      }
     } catch (error) {
       console.log(error)
@@ -37,7 +37,7 @@ const Allpost = () => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:8000/getImage')
+    axios.get('https://node-server-app-d7vw.onrender.com/getImage')
       .then(res => setImage(res.data))
       .catch(err => console.log(err))
   }, [])

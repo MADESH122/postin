@@ -19,7 +19,7 @@ const YourAC = () => {
     }
     else {
       try {
-        const response = await fetch('http://localhost:8000/visitpost', {
+        const response = await fetch('https://node-server-app-d7vw.onrender.com/visitpost', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
