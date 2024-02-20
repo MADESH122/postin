@@ -10,15 +10,15 @@ const Home = () => {
   const [images, setImage] = useState([])
   const [commentText, setCommentText] = useState('')
   useEffect(() => {
-    axios.get('https://node-server-app-d7vw.onrender.com/getImage')
+    axios.get('https://media-server-app.onrender.com/getImage')
       .then(res => setImage(res.data))
       .catch(err => console.log(err))
   }, [])
 
-// ------------------handle like------------------//
+  // ------------------handle like------------------//
   const handleLike = async (imageId) => {
     try {
-      const response = await axios.post(`https://node-server-app-d7vw.onrender.com//${imageId}`);
+      const response = await axios.post(`https://media-server-app.onrender.com/like/${imageId}`);
       const updatedImages = images.map(image =>
         image._id === imageId ? { ...image, likes: response.data.likes } : image
       );
@@ -28,14 +28,14 @@ const Home = () => {
     }
   };
 
-// ------------------handle comment------------------//
+  // ------------------handle comment------------------//
   const handleComment = async (imageId, text, user) => {
     try {
       if (commentText === '') {
         return undefined
       }
       else {
-        const response = await axios.post(`https://node-server-app-d7vw.onrender.com/comment/${imageId}`, { text, user });
+        const response = await axios.post(`http://localhost:8000/comment/${imageId}`, { text, user });
         const updatedImages = images.map(image =>
           image._id === imageId ? { ...image, comments: response.data.comments } : image
         );
@@ -52,7 +52,7 @@ const Home = () => {
       {images.map(image => (
         <div key={image._id} className='userpost'>
           <h4> <FaUserCircle /><p>{image.name ? image.name : "Unknown"}</p></h4>
-          <img src={`https://node-server-app-d7vw.onrender.com/images/${image.image}`} alt={image.image} />
+          <img src={`http://localhost:8000/images/${image.image}`} alt={image.image} />
           <div className='inbox'>
             <div className='like'>
               <FcLike className='likebtn' type='button' onClick={() => handleLike(image._id)} />
