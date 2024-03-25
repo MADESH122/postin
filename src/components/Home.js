@@ -1,45 +1,52 @@
 import React from 'react'
 import './styles/home.css'
 import { FcLike } from "react-icons/fc";
+import { FaUserCircle } from "react-icons/fa";
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import { FaUserCircle } from "react-icons/fa";
 
-const Home = () => {
+const Home = ({ username }) => {
 
-  const [images, setImage] = useState([])
+  const [images, setImages] = useState([])
   const [commentText, setCommentText] = useState('')
   useEffect(() => {
-    axios.get('https://media-server-app.onrender.com/getImage')
-      .then(res => setImage(res.data))
-      .catch(err => console.log(err))
-  }, [])
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get('https://server-3-eyql.onrender.com/allimages');
+        setImages(response.data.images);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   // ------------------handle like------------------//
   const handleLike = async (imageId) => {
     try {
-      const response = await axios.post(`https://media-server-app.onrender.com/like/${imageId}`);
+      const response = await axios.post(`https://server-3-eyql.onrender.com//like/${imageId}`);
       const updatedImages = images.map(image =>
         image._id === imageId ? { ...image, likes: response.data.likes } : image
       );
-      setImage(updatedImages);
+      setImages(updatedImages);
     } catch (error) {
       console.error('Error liking image:', error);
     }
   };
 
   // ------------------handle comment------------------//
-  const handleComment = async (imageId, text, user) => {
+  const handleComment = async (imageId, text, username) => {
     try {
       if (commentText === '') {
         return undefined
       }
       else {
-        const response = await axios.post(`http://localhost:8000/comment/${imageId}`, { text, user });
+        const response = await axios.post(`https://server-3-eyql.onrender.com//comment/${imageId}`, { text, username });
         const updatedImages = images.map(image =>
           image._id === imageId ? { ...image, comments: response.data.comments } : image
         );
-        setImage(updatedImages)
+        setImages(updatedImages)
         setCommentText('')
       }
     } catch (error) {
@@ -49,35 +56,41 @@ const Home = () => {
 
   return (
     <div className='posts'>
-      {images.map(image => (
-        <div key={image._id} className='userpost'>
-          <h4> <FaUserCircle /><p>{image.name ? image.name : "Unknown"}</p></h4>
-          <img src={`http://localhost:8000/images/${image.image}`} alt={image.image} />
-          <div className='inbox'>
-            <div className='like'>
-              <FcLike className='likebtn' type='button' onClick={() => handleLike(image._id)} />
-              <h4>{image.likes}</h4>
+      {images.length > 0 ? (
+        <div className='posts'>
+          {images.map(image => (
+            <div key={image._id} className='userpost'>
+              <h4> <FaUserCircle /><p>{image.username ? image.username : "Unknown"}</p></h4>
+              <img src={image.image} alt={image.image} />
+              <div className='inbox'>
+                <div className='like'>
+                  <FcLike className='likebtn' type='button' onClick={() => handleLike(image._id)} />
+                  <h4>{image.likes}</h4>
+                </div>
+                <div className='comment'>
+                  <input
+                    type="text"
+                    placeholder="Add a comment"
+                    onChange={e => setCommentText(e.target.value)
+                    }
+                  />
+                  <button type='submit' onClick={() => handleComment(image._id, commentText, username)}>+</button>
+                </div>
+              </div>
+              <div className='displayCommants'>
+                <h5>Comments:</h5>
+                <div className='disCommants'>
+                  {image.comments.map((comment, index) => (
+                    <p key={index}>{comment.username} : {comment.text}</p>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className='comment'>
-              <input
-                type="text"
-                placeholder="Add a comment"
-                onChange={e => setCommentText(e.target.value)
-                }
-              />
-              <button type='submit' onClick={() => handleComment(image._id, commentText, "UnKnown")}>+</button>
-            </div>
-          </div>
-          <div className='displayCommants'>
-            <h5>Comments:</h5>
-            <div className='disCommants'>
-              {image.comments.map((comment, index) => (
-                <p key={index}>{comment.user}: {comment.text}</p>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <div className="spinner"></div>
+      )}
     </div>
   )
 }

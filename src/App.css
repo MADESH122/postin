@@ -5,6 +5,7 @@
 
 body {
   background-color: rgb(233, 234, 235);
+  user-select: auto;
 }
 
 /*---------------------navebar style--------------------- */
@@ -43,6 +44,16 @@ body {
   bottom: 0;
 }
 
+.navebarlast .logout {
+  color: white;
+  padding: 5px 0 0 0;
+}
+
+.navebarlast .logout:hover {
+  color: goldenrod;
+  cursor: pointer;
+}
+
 .navebarlast a {
   color: white;
   text-decoration: none;
@@ -68,3 +79,88 @@ i {
   justify-content: center;
   align-items: center;
 }
+
+/* loginpage */
+.loginpage {
+  background-image: url("./bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.loginbox {
+  width: 350px;
+  height: 650px;
+  margin: 50px 0 0 0;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.loginbox p {
+  font-size: 18px;
+  color: rgb(255, 3, 3);
+  font-weight: 500;
+}
+
+.login,
+.signup {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.loginbox input {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 1px 0 1px 7px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin: 0 40px 0 0;
+}
+
+.loginbox button {
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  padding: 3px 5px;
+  color: white;
+  background-color: rgb(170, 0, 0);
+}
+
+.signup {
+  border-top: 1px white solid;
+  padding-top: 30px;
+}
+
+.loginbox h3 {
+  color: white;
+}
+
+.dropdown-content {
+  padding: 7px 0 0 0;
+}
+
+.dropdown-content h3:hover {
+  cursor: pointer;
+  color: goldenrod;
+  text-decoration: underline;
+}
+
