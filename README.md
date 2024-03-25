@@ -3,7 +3,7 @@ create a username and password and >>submit
 After successfully created a Account  
 
 <!-- login -->
-now go to >login  enter usernam and password >login 
+now go to >login  enter username and password >login 
 
 <!--add a image -->
 now go to > add image and click "choose File" 
