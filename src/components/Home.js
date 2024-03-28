@@ -25,7 +25,7 @@ const Home = ({ username }) => {
   // ------------------handle like------------------//
   const handleLike = async (imageId) => {
     try {
-      const response = await axios.post(`https://server-3-eyql.onrender.com//like/${imageId}`);
+      const response = await axios.post(`https://server-3-eyql.onrender.com/like/${imageId}`);
       const updatedImages = images.map(image =>
         image._id === imageId ? { ...image, likes: response.data.likes } : image
       );
@@ -42,7 +42,7 @@ const Home = ({ username }) => {
         return undefined
       }
       else {
-        const response = await axios.post(`https://server-3-eyql.onrender.com//comment/${imageId}`, { text, username });
+        const response = await axios.post(`https://server-3-eyql.onrender.com/comment/${imageId}`, { text, username });
         const updatedImages = images.map(image =>
           image._id === imageId ? { ...image, comments: response.data.comments } : image
         );
@@ -61,7 +61,9 @@ const Home = ({ username }) => {
           {images.map(image => (
             <div key={image._id} className='userpost'>
               <h4> <FaUserCircle /><p>{image.username ? image.username : "Unknown"}</p></h4>
-              <img src={image.image} alt={image.image} />
+              <div className='images'>
+                <img src={image.image} alt={image.image} />
+              </div>
               <div className='inbox'>
                 <div className='like'>
                   <FcLike className='likebtn' type='button' onClick={() => handleLike(image._id)} />

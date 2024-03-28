@@ -18,7 +18,10 @@
     border-radius: 20px;
     background-color: whitesmoke;
 }
-
+.posts .userpost .images{
+    display: flex;
+    justify-content: center;
+}
 /* comment box */
 .inbox {
     margin: 15px 0;

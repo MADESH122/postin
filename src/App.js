@@ -40,11 +40,9 @@ function App() {
   const handleLogin = async () => {
     try {
       const response = await axios.post('https://server-3-eyql.onrender.com/login', { username, password });
-      console.log(response.data.message);
       alert(response.data.message);
       setLoggedIn(true);
     } catch (error) {
-      console.error('Login failed:', error.response.data.message);
       alert(error.response.data.message);
     }
   };
@@ -86,23 +84,26 @@ function App() {
         <div className='loginpage'>
           <div className='loginbox'>
             <div className='login'>
-              <h3>Login</h3>
-              <p>! login  your Account</p>
-              <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-              <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-              <div className='btn'><button onClick={handleLogin}>Login</button></div>
+              <form>
+                <h3>Login</h3>
+                <p>! login  your Account</p>
+                <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <div className='btn'><button onClick={handleLogin}>Login</button></div>
+              </form>
             </div>
             <div className='signup'>
-              <h3>Sign Up</h3>
-              <p>! Create a Account & login</p>
-              <input type="text" placeholder="Username" onChange={handleName} value={username} />
-              <input type="password" placeholder="Password" onChange={handlePassword} value={password} />
-              <div className='btn'><button onClick={handleSignup}>Submit</button></div>
+              <form>
+                <h3>Sign Up</h3>
+                <p>! Create a Account & login</p>
+                <input type="text" placeholder="Username" onChange={handleName} value={username} />
+                <input type="password" placeholder="Password" onChange={handlePassword} value={password} />
+                <div className='btn'><button onClick={handleSignup}>Submit</button></div>
+              </form>
             </div>
           </div>
         </div>
       )}
-
     </div>
   );
 }

@@ -8,6 +8,7 @@ body {
   user-select: auto;
 }
 
+
 /*---------------------navebar style--------------------- */
 .navebar {
   width: 100%;
@@ -105,14 +106,13 @@ i {
   backdrop-filter: blur(10px);
 }
 
-.loginbox p {
+.loginbox  p {
   font-size: 18px;
   color: rgb(255, 3, 3);
   font-weight: 500;
 }
 
-.login,
-.signup {
+.login form,.signup form{
   font-size: 20px;
   display: flex;
   align-items: center;
