@@ -15,7 +15,8 @@ function App() {
   const [password, setPassword] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const handleSignup = async () => {
+  const handleSignup = async (event) => {
+    event.preventDefault();
     try {
       if (username === '') {
         alert('invalid username or password')
@@ -37,7 +38,8 @@ function App() {
     }
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
     try {
       const response = await axios.post('https://server-3-eyql.onrender.com/login', { username, password });
       alert(response.data.message);
@@ -47,6 +49,7 @@ function App() {
     }
   };
   function handleLogout() {
+    
     window.location.reload();
   }
   function handleName(e) {
